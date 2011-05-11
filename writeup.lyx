@@ -1,0 +1,662 @@
+#LyX 1.6.7 created this file. For more info see http://www.lyx.org/
+\lyxformat 345
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{fullpage}
+\usepackage{pdfpages}
+\end_preamble
+\use_default_options true
+\language english
+\inputencoding auto
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\paperfontsize 12
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\cite_engine basic
+\use_bibtopic false
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\author "" 
+\author "" 
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Modeling an Optical Spring
+\end_layout
+
+\begin_layout Author
+Tobin Fricke
+\end_layout
+
+\begin_layout Abstract
+The basic physics of an optical spring is developed analytically and modeled
+ in Optickle.
+\end_layout
+
+\begin_layout Section
+Optical spring (longitudinal)
+\end_layout
+
+\begin_layout Standard
+When detuned from resonance, the power circulating within a Fabry-Perot
+ cavity varies linearly with small deviations from that detuning.
+ This gives rise to a displacement-dependent force, which can be described
+ via a spring constant.
+ This effect is called the 
+\emph on
+optical spring
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This is the longitudinal optical spring; the angular optical spring arises
+ due to other effects.
+ 
+\end_layout
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For frequencies that are slow compared to the cavity pole, we can calculate
+ the behavior of the spring using a quasi-static approximation, simply using
+ the derivative of the power buildup versus cavity detuning.
+\end_layout
+
+\begin_layout Standard
+The power circulating in a cavity is:
+\begin_inset Formula \begin{equation}
+\frac{P_{+}}{P_{IN}}=\frac{g^{2}}{1+F\sin^{2}\phi}\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $P_{IN}$
+\end_inset
+
+ is the incident power, 
+\begin_inset Formula $P_{+}$
+\end_inset
+
+ is the forward-circulating power, 
+\begin_inset Formula $g^{2}=\left(t_{1}\right)^{2}/\left(1-r_{1}r_{2}\right)$
+\end_inset
+
+ is the power buildup on resonance, 
+\begin_inset Formula $F=4r_{1}r_{2}/\left(1-r_{1}r_{2}\right)^{2}$
+\end_inset
+
+ is the coefficient of finesse
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The finesse (
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+) is related to the coefficient of finesse (
+\begin_inset Formula $F$
+\end_inset
+
+) 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\noun off
+\color none
+via 
+\begin_inset Formula $\mathcal{F}\approx\frac{\pi}{2}\sqrt{F}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is the one-way phase detuning of the cavity, which is related to cavity
+ length 
+\begin_inset Formula $x$
+\end_inset
+
+ as 
+\begin_inset Formula $\phi=(2\pi/\lambda)x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+For a given power circulating in the cavity, the radiation pressure force
+ due to the intra-cavity power on each of the mirrors is 
+\begin_inset Formula $f=2P/c$
+\end_inset
+
+.
+ We can find the spring constant by taking the derivative:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \[
+k\equiv-\frac{\partial f}{\partial x}=-\frac{\partial}{\partial x}\frac{2P}{c}=-\frac{2}{c}\frac{\partial\phi}{\partial x}\frac{\partial P}{\partial\phi}\]
+
+\end_inset
+
+Working out the derivative, we find:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{align}
+\frac{\partial}{\partial\phi}P_{+} & =-2Fg^{2}\frac{\cos(\phi)\sin(\phi)}{\left(1+F\sin^{2}\phi\right)^{2}}P_{IN}\\
+ & =-2Fg^{2}P_{IN}\phi+O\left(\phi^{3}\right)\end{align}
+
+\end_inset
+
+Putting it all together, we get:
+\begin_inset Formula \begin{align}
+k & =2Fg^{2}\left(\frac{2P_{IN}}{c}\right)\left(\frac{2\pi}{\lambda}\right)\frac{\cos(\phi)\sin(\phi)}{\left(1+F\sin^{2}\phi\right)^{2}}\label{eq:spring-constant}\\
+ & \approx2Fg^{2}\left(\frac{2P_{IN}}{c}\right)\left(\frac{2\pi}{\lambda}\right)\frac{\phi}{\left(1+F\phi^{2}\right)^{2}}\label{eq:spring-constant-approx1}\\
+ & \approx2Fg^{2}\left(\frac{2P_{IN}}{c}\right)\left(\frac{2\pi}{\lambda}\right)\phi+O\left(\phi^{3}\right)\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where, of course, 
+\begin_inset Formula $\phi=(2\pi/\lambda)\delta x$
+\end_inset
+
+, where 
+\begin_inset Formula $x$
+\end_inset
+
+ is the (one-way) detuning length.
+ If a mirror is displaced by 
+\begin_inset Formula $(\delta x)$
+\end_inset
+
+, the spring constant is:
+\begin_inset Formula \[
+k\approx\frac{64\mathcal{F}^{2}g^{2}P_{IN}}{c\lambda^{2}}\left(\delta x\right)\]
+
+\end_inset
+
+Putting in some numbers for the Enhanced LIGO arms:
+\begin_inset Formula \begin{align*}
+\mathcal{F} & =220\\
+g^{2} & =137\\
+P_{IN} & =400\mathrm{\ Watts}\\
+\lambda & =1064\mathrm{\ nm}\\
+\delta x & =5\mathrm{\ pm}\\
+\hline k & \approx624\mathrm{\ N/m}\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It can also be handy to put Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:spring-constant-approx1"
+
+\end_inset
+
+ into terms of the unitless detuning parameter 
+\begin_inset Formula $\delta_{\gamma}=\sqrt{F}\phi$
+\end_inset
+
+, where 
+\begin_inset Formula $\delta_{\gamma}\equiv\frac{\delta}{\gamma}$
+\end_inset
+
+, where 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is the cavity detuning (in radians/sec), and 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is the line-width (cavity pole) in the same units.
+ If we further assume that the cavity is strongly-overcoupled, we can use
+ the relations 
+\begin_inset Formula $g^{2}=\sqrt{F}=\frac{2}{\pi}\mathcal{F}=4/T_{1}$
+\end_inset
+
+.
+ With these substitutions (and 
+\begin_inset Formula $\lambda=2\pi c/w_{0}$
+\end_inset
+
+), we recover expression (3.14) given in Thomas Corbitt's thesis 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Corbitt2008Quantum"
+
+\end_inset
+
+:
+\begin_inset Formula \begin{equation}
+K_{0}\approx\frac{64P_{IN}w_{0}}{T^{2}c^{2}}\frac{\delta_{\gamma}}{\left(1+\delta_{\gamma}^{2}\right)^{2}}\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Coupled oscillators
+\end_layout
+
+\begin_layout Standard
+Consider a system of two masses, connected to each other via a spring with
+ spring constant 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ and each connected to the wall via a spring of spring constant 
+\begin_inset Formula $k_{0}$
+\end_inset
+
+.
+ (Later, 
+\begin_inset Formula $k_{0}$
+\end_inset
+
+ will represent the pendula by which the optics are suspended, and 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ will represent the optical spring.)
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figures/coupled-oscillators-diagram.pdf
+	width 40page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By inspection, the equations of motion are:
+\begin_inset Formula \begin{eqnarray}
+m\ddot{x}_{1} & = & -k_{0}x_{1}+k_{1}(x_{2}-x_{1})\\
+m\ddot{x}_{2} & = & -k_{0}x_{2}-k_{1}(x_{2}-x_{1})\end{eqnarray}
+
+\end_inset
+
+which may be written in matrix form as
+\begin_inset Formula \begin{equation}
+\mathbf{\ddot{x}}=\frac{1}{m}\left[\begin{array}{cc}
+-(k_{0}+k_{1}) & k_{1}\\
+k_{1} & -(k_{0}+k_{1})\end{array}\right]\mathbf{x}\end{equation}
+
+\end_inset
+
+Because of the form of the matrix
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The matrix 
+\begin_inset Formula $\left[\begin{array}{cc}
+a & b\\
+b & a\end{array}\right]$
+\end_inset
+
+ has eigenvectors 
+\begin_inset Formula $\left(\begin{array}{c}
+1\\
+1\end{array}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\begin{array}{c}
+1\\
+-1\end{array}\right)$
+\end_inset
+
+ with eigenvalues 
+\begin_inset Formula $(a+b)$
+\end_inset
+
+ and 
+\begin_inset Formula $(a-b)$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+, we can immediately see that it has eigenvectors corresponding to common
+ and differential motion, with eigenvalues 
+\begin_inset Formula $\left\{ -k_{0},-(k_{0}+2k_{1})\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Applying this diagonalization, we find:
+\begin_inset Formula \[
+\mathbf{\ddot{x'}}=\frac{1}{m}\left[\begin{array}{cc}
+-k_{0} & 0\\
+0 & -(k_{0}+2k_{1})\end{array}\right]\mathbf{x'}\text{ where }\mathbf{x'}=\left[\begin{array}{cc}
+1 & 1\\
+1 & -1\end{array}\right]\mathbf{x}\]
+
+\end_inset
+
+The presence of the coupling 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ only affects the differential mode.
+\end_layout
+
+\begin_layout Section
+Damped oscillators
+\end_layout
+
+\begin_layout Standard
+Now consider a mass connected to the wall via a spring with spring constant
+ 
+\begin_inset Formula $k$
+\end_inset
+
+ and a velocity damper with damping constant 
+\begin_inset Formula $\gamma$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figures/damped-oscillator-diagram.pdf
+	width 25page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The equation of motion of the mass is:
+\begin_inset Formula \begin{equation}
+m\ddot{x}=-kx-\gamma\dot{x}+f_{external}\end{equation}
+
+\end_inset
+
+with Laplace transform
+\begin_inset Formula \begin{equation}
+ms^{2}X=-kX-\gamma sX+F_{external}\end{equation}
+
+\end_inset
+
+giving rise to a transfer function of
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula \begin{eqnarray*}
+\frac{X}{F} & = & \frac{1}{ms^{2}+\gamma s+k}\\
+ & = & \left(\frac{1}{m}\right)\frac{1}{\left(s-s_{+}\right)\left(s-s_{-}\right)}\text{ with }s_{\pm}=-\frac{1}{2}\frac{\gamma}{m}\pm\frac{1}{2}\sqrt{\left(\frac{\gamma}{m}\right)^{2}-4\frac{k}{m}}\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Optickle
+\end_layout
+
+\begin_layout Standard
+In the attached Matlab code, I construct a very simple model in Optickle
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Evans2007Optickle"
+
+\end_inset
+
+ consisting of only a laser and two mirrors, forming a resonant cavity.
+ Optickle is also supplied with the mechanical (force to position) transfer
+ functions of each optic (in isolation).
+ Together these transfer functions compose the 
+\emph on
+reaction matrix
+\emph default
+, which is diagonal in the sense that force applied to one optic only affects
+ the position of that same optic.
+\end_layout
+
+\begin_layout Standard
+After constructing the model, we call Optickle via the tickle function:
+\end_layout
+
+\begin_layout Quote
+
+\family typewriter
+[fDC, sigDC, sigAC, mMech, noiseAC, noiseMech] = tickle(opt, pos, f);
+\end_layout
+
+\begin_layout Standard
+The output we are interested in here is 
+\begin_inset Quotes eld
+\end_inset
+
+
+\family typewriter
+mMech
+\family default
+,
+\begin_inset Quotes erd
+\end_inset
+
+ which gives the modifications to the mechanical transfer functions due
+ to the radiation pressure couplings.
+ Its units are 
+\begin_inset Quotes eld
+\end_inset
+
+meters per meter
+\begin_inset Quotes erd
+\end_inset
+
+--a bit perplexing at first but some intuition may be gained by considering
+ it as (meters in the presense of radiation pressure)/(meters in the absense
+ of radiation pressure).
+ A more sensible approach is to multiply 
+\family typewriter
+mMech
+\family default
+ with the reaction matrix, which gives the mechanical transfer functions
+ (from force applied at some optic to displacement of every other optic)
+ including all optomechanical couplings.
+\end_layout
+
+\begin_layout Standard
+To extract the optical spring transfer function, I further transform 
+\family typewriter
+mMech
+\family default
+ to the basis of common and differential degrees of freedom.
+\end_layout
+
+\begin_layout Standard
+Because we know the mass, resonant frequency, and damping coefficient (and
+ thus also the equivalent spring constant) of the mechanical transfer functions
+ supplied to Optickle, we can compute the expected differential mode transfer
+ function in the presence of radiation pressure by adjusting the spring
+ constant from 
+\begin_inset Formula $k$
+\end_inset
+
+ to 
+\begin_inset Formula $k+2k_{opt}$
+\end_inset
+
+ where 
+\begin_inset Formula $k_{opt}$
+\end_inset
+
+ is the calculated optical spring constant, or simply shifting the resonance
+ to 
+\begin_inset Formula $w'=w-2k_{opt}/m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+This approach shows good agreement (see Figure 
+\begin_inset CommandInset ref
+LatexCommand vref
+reference "fig:model-comparison"
+
+\end_inset
+
+) with the results returned by Optickle with the caveat that 
+\color red
+I've omitted that factor of two
+\color inherit
+ and am instead using 
+\begin_inset Formula $k'=k+k_{opt}$
+\end_inset
+
+.
+ I have not yet tracked down the error.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figures/model-comparison.pdf
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:model-comparison"
+
+\end_inset
+
+Comparison of the Optickle model with the analytically-derived results.
+ Note: the excellent agreement only occurs when an unphysical factor of
+ two is put into the analytic form of the optical spring constant!
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "references"
+options "plainurl"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+showthe
+\backslash
+columnwidth
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
