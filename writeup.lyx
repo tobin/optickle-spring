@@ -585,7 +585,7 @@ I've omitted that factor of two
 \end_inset
 
 .
- I have not yet tracked down the error.
+ I currently believe this is an error in Optickle.
 \end_layout
 
 \begin_layout Standard
@@ -615,8 +615,20 @@ name "fig:model-comparison"
 \end_inset
 
 Comparison of the Optickle model with the analytically-derived results.
- Note: the excellent agreement only occurs when an unphysical factor of
- two is put into the analytic form of the optical spring constant!
+ 
+\series bold
+\color red
+Note:
+\series default
+\color inherit
+ the excellent agreement only occurs when an unphysical factor of two is
+ put into the analytic form of the optical spring constant! The units of
+ the y-axis are 
+\begin_inset Formula $20\log_{10}$
+\end_inset
+
+(displacement/force); the x-axis is Hz; color indicates cavity detuning
+ in picometers.
 \end_layout
 
 \end_inset
@@ -634,24 +646,6 @@ Comparison of the Optickle model with the analytically-derived results.
 LatexCommand bibtex
 bibfiles "references"
 options "plainurl"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
- 
-\backslash
-showthe
-\backslash
-columnwidth
-\end_layout
 
 \end_inset
 
