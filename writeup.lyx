@@ -238,7 +238,14 @@ g^{2} & =137\\
 P_{IN} & =400\mathrm{\ Watts}\\
 \lambda & =1064\mathrm{\ nm}\\
 \delta x & =5\mathrm{\ pm}\\
-\hline k & \approx624\mathrm{\ N/m}\end{align*}
+\hline k & \approx2500\mathrm{\ N/m}\end{align*}
+
+\end_inset
+
+For comparison, the mechanical restoring force has a spring constant of
+ approximately
+\begin_inset Formula \[
+k_{m}=m\omega^{2}\approx\left(10.5\text{ kg}\right)\left(2\pi\cdot0.7\text{5 Hz}\right)^{2}\approx230\text{ \frac{\text{N}}{\text{m}}}\]
 
 \end_inset
 
