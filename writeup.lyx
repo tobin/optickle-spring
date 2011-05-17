@@ -648,6 +648,33 @@ Note:
 
 \end_layout
 
+\begin_layout Section*
+Acknowledgements
+\end_layout
+
+\begin_layout Standard
+This is document is hosted at 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/tobin/optickle-spring/
+\end_layout
+
+\end_inset
+
+ and has been assigned document control number 
+\begin_inset CommandInset href
+LatexCommand href
+name "LIGO-T1100276"
+target "https://dcc.ligo.org/cgi-bin/private/DocDB/ShowDocument?docid=61256"
+
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
