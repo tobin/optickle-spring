@@ -569,7 +569,7 @@ Because we know the mass, resonant frequency, and damping coefficient (and
 
  is the calculated optical spring constant, or simply shifting the resonance
  to 
-\begin_inset Formula $w'=w-2k_{opt}/m$
+\begin_inset Formula $w'=w-\sqrt{2k_{opt}/m}$
 \end_inset
 
 .
